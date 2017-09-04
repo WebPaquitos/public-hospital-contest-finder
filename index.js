@@ -9,7 +9,9 @@ app.get('/', function (req, res) {
 
 app.get('/test', function (req, res) {
     console.log('test');
-    res.json(scrapperController.scrape1());
+    scrapperController.scrape1().then(page => {
+        res.json(page);
+    });
 });
 
 app.listen(3000, function () {
